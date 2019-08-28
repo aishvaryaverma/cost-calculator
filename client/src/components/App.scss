@@ -1,0 +1,163 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Livvic', sans-serif;
+    font-size: 1.6rem;
+    color: #232323;
+    line-height: 1.6;
+}
+
+.questionsBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 10rem;
+    background: #f1f1f1;
+    min-height: calc(100vh - 8rem);
+    
+    h1 {
+        font-size: 3rem;
+        margin: 0 0 10px;
+        max-width: 800px;
+        text-align: center;
+    }
+    p {
+        margin: 0;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        margin-top: 60px;
+        align-items: center;
+    
+
+        li {
+            display: block;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 400;
+            padding: 20px 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 0 30px;
+            color: cornflowerblue;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.07);
+            transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+        
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            }
+            &:active {
+                transform: translateY(0);
+                box-shadow: 0 0 2px rgba(0,0,0,0.1);
+            }
+        }
+    }
+}
+
+.letsBuildApp {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background: #f1f1f1;
+    padding: 4rem 10rem;
+    min-height: calc(100vh - 8rem);
+
+    .estimationBox {
+        width: 35%;
+
+        h2 {
+            font-size: 3.6rem;
+            font-weight: bold;
+        }
+        h3 {
+            font-size: 2.1rem;
+            font-weight: 400;
+        }
+        p {
+            text-align: left;
+        }
+    }
+
+    .formBox {
+        width: 30%;
+        border: none;
+        padding: 4rem;
+        background-color: #fff;
+        box-shadow: 0 0 4px 1px rgba(#000, 0.05);
+
+        fieldset {
+            border: none;
+            margin-bottom: 15px;
+
+            label {
+                display: block;
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin: 0 0 .5rem;
+            }
+            .input {
+                width: 100%;
+                padding: 1rem;
+                resize: none;
+                box-sizing: border-box;
+                border: 1px solid #ddd;
+            }
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    border: none;
+    font-family: 'Livvic', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+    backface-visibility: hidden;
+
+    &--block {
+        display: block;
+        width: 100%;
+    }
+    &--rounded {
+        border-radius: 25px;
+    }
+    &--primary {
+        color: white;
+        background-color: brown;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.4);
+            background-color: darken($color: brown, $amount: 2%);
+        }
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+            background-color: darken($color: brown, $amount: 3%);
+        }
+    }
+}

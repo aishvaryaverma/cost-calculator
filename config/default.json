@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://vsonu9020:vsonu9020@calculator-tool-5wsqe.mongodb.net/costCalculator?retryWrites=true&w=majority",
+    "jwtSecret": "mySecretToken",
+    "smtpUsername": "aashuclavax@gmail.com",
+    "smtpPassword": "Verma@123"
+}
