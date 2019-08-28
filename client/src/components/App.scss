@@ -118,6 +118,10 @@ body {
                 resize: none;
                 box-sizing: border-box;
                 border: 1px solid #ddd;
+
+                &.textarea {
+                    height: 8rem;
+                }
             }
         }
     }

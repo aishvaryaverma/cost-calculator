@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Context } from '../../context';
-import axios from 'axios';
+import InquiryForm from './InquiryForm';
+// import axios from 'axios';
 
 const LetsBuildApp = props => {
     const state = useContext(Context);
-    // eslint-disable-next-line
     const [totalPrice, setTotalPrice] = useState(0);
+    const [stepData, setStepData] = useState([]);
 
     useEffect(() => {
-        calculatePrice(state)
+        calculatePrice(state);
+        emailData(state);
+    // eslint-disable-next-line
     }, [state]);
 
     const calculatePrice = (data) => {
@@ -17,9 +20,21 @@ const LetsBuildApp = props => {
         const total = price.map((item, i) => item.value[priceIndex[i]]).reduce((acc, val) => acc + val)
         setTotalPrice(total)
     }
+    const emailData = e => {
+        const { stepSelected } = state;
+        const nameArray = ['Application platform', 'Application design', 'Project status', 'Register and login', 'Multilingual Application', 'Accept in-app payments', 'Admin panel'];
+        const data = stepSelected.map((step, i) => {
+            let name = nameArray[i];
+            return {
+                [name]: step.text
+            }
+        });
+        setStepData(data);
+    }
 
-    const onSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = formData => {
+        console.log(stepData);
+        console.log(formData);
     }
 
     return (
@@ -30,32 +45,7 @@ const LetsBuildApp = props => {
                 <p>Thanks for providing the details. We have calculated an approx. cost for the development of your app using our proprietary estimation tool</p>
             </div>
 
-            <div className="formBox">
-                <form onSubmit={e => onSubmit(e)}>
-                    <fieldset>
-                        <label htmlFor="fname">First Name</label>
-                        <input type="text" name="first_name" id="fname" className="input" />
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="lname">Last Name</label>
-                        <input type="text" name="last_name" id="lname" className="input" />
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="email">Email</label>
-                        <input type="text" name="email" id="email" className="input" />
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="mobile">Mobile</label>
-                        <input type="text" name="mobile" id="mobile" className="input" />
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="msg">Message</label>
-                        <textarea type="text" name="msg" id="msg" className="input"></textarea>
-                    </fieldset>
-
-                    <button className="btn btn--block btn--rounded btn--primary">Submit Now!</button>
-                </form>
-            </div>
+            <InquiryForm onSubmit={handleSubmit} />
         </div>
     )
 }
