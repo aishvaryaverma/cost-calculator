@@ -27,7 +27,7 @@ const InquiryForm = props => {
             setFormData({ ...formData, errors: { firstName: '' } })
         }
 
-        props.onSubmit(formData)
+        props.onSubmit({ firstName, lastName, email, mobile, message })
     }
 
     return (

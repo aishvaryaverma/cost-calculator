@@ -9,7 +9,7 @@ connectDb();
 app.use(express.json({ extended: false }));
 
 // Routes
-app.use('/api/mobileinquiry', require('./routes/api/sendmail'));
+app.use('/api/estimate/mobileapp', require('./routes/api/mobile'));
 
 app.get('/', (req, res) => { res.send('Api running') });
 

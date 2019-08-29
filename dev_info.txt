@@ -1,0 +1,14 @@
+Required Fields
+-----------------------
+First Name
+Last Name
+Email
+Mobile
+
+Backend Email
+-- Form Details
+-- Steps Details
+-- Our Total Price
+
+User Email
+-- Template (please provide me design for this)
