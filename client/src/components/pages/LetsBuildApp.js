@@ -41,8 +41,8 @@ const LetsBuildApp = props => {
     }
 
     const handleSubmit = async formData => {
-        console.log(stepData);
-        console.log(formData);
+        // console.log(stepData);
+        // console.log(formData);
         
         // const data = JSON.stringify({ ...formData, stepData: [...stepData] });
         // const res = await axios({
