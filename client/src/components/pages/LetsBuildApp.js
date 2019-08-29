@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Context } from '../../context';
 import InquiryForm from './InquiryForm';
-// import axios from 'axios';
+import axios from 'axios';
 
 const LetsBuildApp = props => {
     const state = useContext(Context);
@@ -22,7 +22,7 @@ const LetsBuildApp = props => {
     }
     const emailData = e => {
         const { stepSelected } = state;
-        const nameArray = ['Application platform', 'Application design', 'Project status', 'Register and login', 'Multilingual Application', 'Accept in-app payments', 'Admin panel'];
+        const nameArray = ['Application_Platform', 'Application_Design', 'Project_Status', 'Register_and_login', 'Multilingual_Application', 'Accept_in-app_Payments', 'Admin_Panel'];
         const data = stepSelected.map((step, i) => {
             let name = nameArray[i];
             return {
@@ -32,9 +32,21 @@ const LetsBuildApp = props => {
         setStepData(data);
     }
 
-    const handleSubmit = formData => {
+    const handleSubmit = async formData => {
         console.log(stepData);
         console.log(formData);
+        const data = JSON.stringify({ ...formData, stepData: [...stepData] });
+        console.log(data);
+        
+        const res = await axios({
+            method: 'POST',
+            url: '/api/mobileinquiry',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data
+        })
+        console.log(res.data)
     }
 
     return (

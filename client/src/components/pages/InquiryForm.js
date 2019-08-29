@@ -15,13 +15,18 @@ const InquiryForm = props => {
             message: '',
         }
     });
-    const { firstName, lastName, email, mobile, message }= formData;
+    const { firstName, lastName, email, mobile, message, errors }= formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
-        // console.log(formData)
+        if(firstName === '') {
+            return setFormData({ ...formData, errors: { firstName: 'First name is required.' } })
+        } else {
+            setFormData({ ...formData, errors: { firstName: '' } })
+        }
+
         props.onSubmit(formData)
     }
 
@@ -38,6 +43,7 @@ const InquiryForm = props => {
                         value={firstName}
                         onChange={e => onChange(e)}
                     />
+                    <span className="error">{errors.firstName}</span>
                 </fieldset>
                 <fieldset>
                     <label htmlFor="lname">Last Name</label>
