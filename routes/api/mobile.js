@@ -26,11 +26,23 @@ router.post('/', async (req, res) => {
 
     // Get data from request body
     const { firstName, lastName, email, mobile, message, stepsData } = req.body;
-    
+    const nameArray = [
+        'Platform',
+        'Design',
+        'User Registration',
+        'Administration Features',
+        'Service Integration',
+        'Database Management',
+        'Security',
+        'App Billing',
+        'Exclusive Features'
+    ];
+    const newStepData = stepsData.split(',').map((step, i) => { return nameArray[i] + ': ' + step.trim() });
+
     try {
 
         // Adding data to database using mongoose
-        const inquiry = new Mobile({firstName, lastName, email, mobile, message, stepsData });
+        const inquiry = new Mobile({firstName, lastName, email, mobile, message, stepsData: newStepData });
         await inquiry.save();
         
         // Send email's
@@ -41,8 +53,10 @@ router.post('/', async (req, res) => {
         res.status(200).json({ msg: 'Request proceed successfully' });
 
     } catch (err) {
+
         console.error(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
+
     }
 
 });

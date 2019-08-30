@@ -1,12 +1,14 @@
 const nodemailer = require('./transporter');
 const fs = require('fs');
+// const path = require('path');
+// const appDir = path.dirname(require.main.filename);
 
 let sendAdminEmail = bodyData => {
 
     const newStepsData = ['Web','Custom','Username & Password','Yes','Yes','Yes','Yes','Payment Gateway',['one','two','three']];
     const { email } = bodyData;
     const newBodyData = { ...bodyData, newStepsData };
-    const template = fs.readFileSync(`${__dirname}/admin.html`, 'utf-8');
+    const template = fs.readFileSync(`${__dirname}/templates/admin.html`, 'utf-8');
     const messageBody = replaceAdminTemplate(template, newBodyData);
     
     // Lets send email with nodemailer
@@ -23,7 +25,7 @@ let sendAdminEmail = bodyData => {
 let sendUserEmail = bodyData => {
 
     const { firstName, email } = bodyData;
-    const template = fs.readFileSync(`${__dirname}/user.html`, 'utf-8');
+    const template = fs.readFileSync(`${__dirname}/templates/user.html`, 'utf-8');
     const messageBody = replaceUserTemplate(template, firstName);
     
     // Lets send email with nodemailer
@@ -36,7 +38,6 @@ let sendUserEmail = bodyData => {
     nodemailer.transporter.sendMail(message);
 
 };
-
 
 function replaceAdminTemplate(originalHtml, data) {
     let output = originalHtml.replace(/{%FIRSTNAME%}/g, data.firstName);
