@@ -13,7 +13,7 @@ const reducer = (state, action) => {
 			}  else {
 				stepData = [...state.stepSelected, payload]
 			}
-			localStorage.setItem('steps', JSON.stringify(stepData))
+			localStorage.setItem('steps', JSON.stringify(stepData));
 			return {
 				...state,
 				stepSelected: stepData
@@ -25,22 +25,15 @@ const reducer = (state, action) => {
 
 export class Provider extends Component {
   	state = {
-    	price: [
-            { value: [6000, 6000, 12000] },
-            { value: [2000, 3000, 2000, 0] },
-            { value: [3000, 2000, 1000] },
-            { value: [2000, 2000, 0, 0] },
-            { value: [2000, 2000, 0] },
-            { value: [2000, 0, 0] },
-            { value: [4000, 0, 0] }
-		],
 		stepSelected: [],
     	dispatch: action => this.setState(state => reducer(state, action))
 	}
 
 	componentDidMount() {
-		const prisistedSteps = JSON.parse(localStorage.getItem('steps'));
-		this.setState({ stepSelected: prisistedSteps })
+		if(localStorage.steps) {
+			const prisistedSteps = JSON.parse(localStorage.getItem('steps'));
+			this.setState({ stepSelected: prisistedSteps })
+		}
 	}
 	
 	render() {

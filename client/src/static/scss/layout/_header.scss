@@ -1,0 +1,47 @@
+.mainHeader {
+    padding: 1.9rem 0;
+    box-shadow: 0 0 1rem rgba(black, .05);
+
+    .container {
+        display: grid;
+        align-items: center;
+        grid-column-gap: 2rem;
+        grid-template-columns: 15rem 1fr;
+    }
+
+    .logo {
+        display: block;
+        a { display: block; }
+        svg { display: block; }
+    }
+
+    .mainNav {
+        text-align: right;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            li {
+                display: block;
+
+                a {
+                    display: block;
+                    padding: 0 2rem;
+                    color: $color-primary;
+                    font-weight: 600;
+
+                    &.btnAnimated {
+                        padding-left: 5rem;
+                        background-color: #e2e2e2;
+
+                        &:hover {
+                            color: $color-primary-dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

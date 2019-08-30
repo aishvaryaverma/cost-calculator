@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from '../context';
 
-import SelectPlatform from './pages/SelectPlatform';
-import AppDesign from './pages/AppDesign';
-import ProjectStatus from './pages/ProjectStatus';
-import RegisterLogin from './pages/RegisterLogin';
-import MultiLanguage from './pages/MultiLanguage';
-import InAppPayments from './pages/InAppPayments';
-import AppAdminPanel from './pages/AppAdminPanel';
-import LetsBuildApp from './pages/LetsBuildApp';
+import Platform             from './pages/Platform';
+import Design               from './pages/Design';
+import UserRegistration     from './pages/UserRegistration';
+import AdminFeatures        from './pages/AdminFeatures';
+import ServiceIntegration   from './pages/ServiceIntegration';
+import DatabaseManagement   from './pages/DatabaseManagement';
+import Security             from './pages/Security';
+import AppBilling           from './pages/AppBilling';
+import ExclusiveFeatures    from './pages/ExclusiveFeatures';
+import LetsBuildApp         from './pages/LetsBuildApp';
 
-import './App.scss';
+import '../static/scss/main.scss';
 
 class App extends Component {
     render() {
@@ -19,15 +21,17 @@ class App extends Component {
             <Provider>
                 <Router>
                     <Switch>
-                        <Route exact path="/" component={() => <Redirect to="/select-platform" />} />
-                        <Route exact path="/select-platform" component={SelectPlatform} />
-                        <Route exact path="/app-design" component={AppDesign} />
-                        <Route exact path="/project-status" component={ProjectStatus} />
-                        <Route exact path="/register-login" component={RegisterLogin} />
-                        <Route exact path="/multi-language" component={MultiLanguage} />
-                        <Route exact path="/inapp-payments" component={InAppPayments} />
-                        <Route exact path="/app-adminpanel" component={AppAdminPanel} />
-                        <Route exact path="/lets-build-your-app" component={LetsBuildApp} />
+                        <Route exact path="/" component={() => <Redirect to="/platform" />} />
+                        <Route exact path="/platform"               component={Platform}  />
+                        <Route exact path="/design"                 component={Design}       />
+                        <Route exact path="/user-registration"      component={UserRegistration}   />
+                        <Route exact path="/admin-features"         component={AdminFeatures}   />
+                        <Route exact path="/service-integration"    component={ServiceIntegration}   />
+                        <Route exact path="/database-management"    component={DatabaseManagement}   />
+                        <Route exact path="/security"               component={Security}   />
+                        <Route exact path="/app-billing"            component={AppBilling}    />
+                        <Route exact path="/exclusive-features"     component={ExclusiveFeatures}    />
+                        <Route exact path="/lets-build-your-app"    component={LetsBuildApp}    />
                     </Switch>
                 </Router>
             </Provider>

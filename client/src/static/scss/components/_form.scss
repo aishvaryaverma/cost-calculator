@@ -1,0 +1,26 @@
+.formBox {
+    margin: 0;
+
+    fieldset {
+        border: none;
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 0 .5rem;
+        }
+        .input {
+            width: 100%;
+            padding: 1rem;
+            resize: none;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+
+            &.textarea {
+                height: 8rem;
+            }
+        }
+    }
+}

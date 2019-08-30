@@ -1,0 +1,145 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        padding: 1.5rem 2rem;
+        border: none;
+        font-family: 'Livvic', sans-serif;
+        letter-spacing: .1rem;
+        font-weight: 300;
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+        text-transform: uppercase;
+        transition: all .2s ease-in-out;
+        backface-visibility: hidden;
+        font-size: $default-font-size;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+    }
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+    }
+    
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+    
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--block {
+        display: block;
+        width: 100%;
+    }
+    &--rounded {
+        border-radius: 25px;
+    }
+    &--primary {
+        color: white;
+        background-color: brown;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.4);
+            background-color: darken($color: brown, $amount: 2%);
+        }
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+            background-color: darken($color: brown, $amount: 3%);
+        }
+    }
+    
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
+}
+
+.btnAnimated {
+    display:inline-block;
+    position:relative;
+    z-index:1;
+	font-size:16px;
+	color:#fff;
+	outline:none;
+    cursor:pointer;
+    overflow:hidden;
+    line-height:42px;
+    text-align:center;
+	padding:0 25px 0 50px;
+	background: $color-secondary;
+	@include css3-borderRadius('border-radius','28px');
+	@include css3-transition('transition','all 0.3s ease-in-out');
+	
+	&:before {
+		position:absolute;
+		display:block;
+		content:'';
+		width:20px;
+		height:20px;
+		top:11px;
+		left:19px;
+		z-index: -1;
+		pointer-events:none;
+		background-color:none;
+		@include css3-borderRadius('border-radius','50%');
+		@include css3-boxShadow('box-shadow','0 0 0 0 rgba(1, 42, 94, 1)');
+	}
+		
+	&:after {
+		position:absolute;
+		display:block;
+		content:'';
+		width:22px;
+		height:22px;
+		top:10px;
+		left:18px;
+		z-index:-1;
+		pointer-events:none;
+		background-color:transparent;
+		@include css3-borderRadius('border-radius','50%');
+		@include css3-boxShadow('box-shadow','inset 0 0 0 6px #012a5e');
+	}
+
+	&:hover {
+		color:#fff;
+		
+		&:before {
+			@include css3-transition('transition','all 0.5s ease-in-out 0.2s');
+			@include css3-boxShadow('box-shadow','0 0 0 30px rgba(0, 0, 0, 0)');
+		}
+	}
+	&:focus {
+		outline:none;
+	}
+	
+	&.white {
+		background:#fff;
+		
+		&:before {
+			@include css3-boxShadow('box-shadow','0 0 0 0 rgba(63, 90, 123, 1)');
+		}
+		
+		&:hover {
+			&:before {
+				@include css3-boxShadow('box-shadow','0 0 0 30px rgba(63, 90, 123, 0)');
+			}
+		}
+	}
+}
