@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
     await check('lastName', 'Please enter a last name').not().isEmpty().run(req);
     await check('email', 'Please enter a valid email address').isEmail().run(req);
     await check('mobile', 'Please enter a mobile number').isLength({ min: 7, max: 15 }).run(req);
-    await check('stepsData', 'User Step data is required').not().isEmpty().run(req);
+    await check('stepsData', 'User steps data is required').not().isEmpty().run(req);
     const result = validationResult(req);
     
     // Throwing error if required field are missing
