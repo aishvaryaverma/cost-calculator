@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     if (!result.isEmpty()) {
         return res.status(400).json({ errors: result.array() });
     }
-
+    
     // Get data from request body
     const { firstName, lastName, email, mobile, message, stepsData } = req.body;
     const nameArray = [
