@@ -12,7 +12,9 @@ const Platform = ({ history: { push } }) => {
             index,
             text: e.target.textContent
         }
+        
         dispatch({ type: 'UPDATE_STATE', payload: data });
+        
         push('/design');
     }
 
@@ -25,7 +27,7 @@ const Platform = ({ history: { push } }) => {
                     <li onClick={e => updateAppState(0, e)}>iOS</li>
                     <li onClick={e => updateAppState(1, e)}>Android</li>
                     <li onClick={e => updateAppState(2, e)}>Hybrid</li>
-                    <li onClick={e => updateAppState(2, e)}>Progressive Web Apps</li>
+                    <li onClick={e => updateAppState(3, e)}>Progressive Web Apps</li>
                 </ul>
             </div>
         </Layout>

@@ -1,9 +1,10 @@
 body {
     font-family: 'Livvic', sans-serif;
-    font-weight: 400;
     font-size: $default-font-size;
     line-height: 1.7;
+    font-weight: 400;
     color: $color-grey-dark;
+    background-color: #f5f5f5;
 }
 
 a:link {
