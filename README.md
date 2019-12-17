@@ -15,7 +15,7 @@ This is a Node/Express/MongoDB REST API to put data in mongoDB Database and Shoo
 
 # API Usage & Endpoints
 
-## Register a User [POST /api/estimate/mobileapp]
+## Submit a query [POST /api/estimate/mobileapp]
 
 - Request: Add form data to DB and shoot mail to both client and admin
 
